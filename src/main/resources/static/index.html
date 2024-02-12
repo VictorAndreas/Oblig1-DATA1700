@@ -2,10 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HEIHEI</title>
-  <script src="index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oblig1 Kinobilletter</title>
+    <script src="index.js"></script>
 </head>
 <body>
+<h1>Bestilling av Kinobilletter</h1>
+
+<div id="form">
+    <form>
+        <label for="film">Velg film:</label>
+        <select name="film" id="film">
+            <option value=""></option>
+            <option value="Star Wars">Star WarsTM</option>
+            <option value="Sonic The Headshot">Sonic The Headshot</option>
+            <option value="Detector Pikachu">Detector Pikachu</option>
+            <option value="Kongens Nja">Kongens Nja</option>
+        </select>
+    </form>
+
+    <label for="antall">Antall</label>
+    <input type="number" id="antall" name="antall"><br><br>
+    <label for="fnavn" >Fornavn</label>
+    <input type="text" id="fnavn" class="clear" name="fnavn"> <br>
+    <label for="enavn">Etternavn</label>
+    <input type="text" id="enavn" class="clear" name="enavn"> <br>
+    <label for="tlf">Tlf</label>
+    <input type="tel" id="tlf" name="tlf" pattern="[0-9]{8}" required><br>
+    <label for="epost">Epost</label>
+    <input type="email" id="epost" name="epost"><br>
+</div>
+
+
+
+
+<button onclick="registrer()">Kjøp Biletter</button>
+<h2>Alle billetter</h2>
+<div id="alleBilletter"></div>
+<button onclick="slettBilett()">Slett billetter</button>
+
 
 </body>
 </html>
