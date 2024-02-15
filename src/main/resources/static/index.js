@@ -18,47 +18,44 @@ function registrer() {
     // Kode for error melding, legger til 1 og viser feilmelding i stedet for å pushe til array
     let error = 0;
 
+    const antallPattern = /^[1-9][0-9]*$/; // Kontrollerer om positive tall
+    const navnPattern = /^[a-zA-Z]+$/; // Kontrollerer om bare bokstaver
+    const tlfPattern = /^\d{8,}$/; // Minst åtte siffere
+    const epostPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Kontrollerer om gyldig email
+
+
     x = film;
     // Hvis film 0 er valgt, vis feilmelding
     if (x === "0") {
-        document.getElementById("film-e").innerHTML = "Velg film";
+        document.getElementById("film-e").innerHTML = "Velg en film!";
         error += 1;
     }
 
-    //Sjekker om input er tomt
-    x = antall;
-    if (x === "" || x == null) {
-        document.getElementById("antall-e").innerHTML = "Velg antall";
+    if (!antallPattern.test(antall)) {
+        document.getElementById("antall-e").innerHTML = "Velg antall billetter!";
         error += 1;
     }
 
-    //Sjekker om input er tomt
-    x = fnavn;
-    if (x === "" || x == null) {
-        document.getElementById("fnavn-e").innerHTML = "Fyll inn fornavnett ditt";
+    if (!navnPattern.test(fnavn)) {
+        document.getElementById("fnavn-e").innerHTML = "Fyll inn fornavn!";
         error += 1;
     }
 
-    //Sjekker om input er tomt
-    x = enavn;
-    if (x === "" || x == null) {
-        document.getElementById("enavn-e").innerHTML = "Fyll inn etternavn";
+    if (!navnPattern.test(enavn)) {
+        document.getElementById("enavn-e").innerHTML = "Fyll inn etternav!n";
         error += 1;
     }
 
-    //Sjekker om tlf har nummer
-    x = tlf;
-    if (isNaN(x) ||x === "" || x == null) {
-        document.getElementById("tlf-e").innerHTML = "Skriv inn et mobilnummer med tall!";
+    if (!tlfPattern.test(tlf)) {
+        document.getElementById("tlf-e").innerHTML = "Skriv inn et mobilnummer med 8 siffre!";
         error += 1;
     }
 
-    // Hvis ikke @ gi feilmelding
-    x = epost;
-    if (x === "" || x == null || !x.includes("@")) {
-        document.getElementById("epost-e").innerHTML = "Fyll inn gyldig epost";
+    if (!epostPattern.test(epost)) {
+        document.getElementById("epost-e").innerHTML = "Fyll inn gyldig epost!";
         error += 1;
     }
+
 
     console.log("error = " + error)
 
